@@ -1,0 +1,75 @@
+@import '../../../styles/variables.scss';
+
+.checkbox {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  cursor: pointer;
+  &:hover {
+    .box {
+      border-color: $primary;
+    }
+  }
+}
+
+.input {
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  margin: 0;
+  &:checked ~ .box {
+    background-color: $primary;
+    border-color: $primary;
+  }
+  &:checked ~ .box .boxMark:before {
+    height: 7px;
+    transition: all .15s ease-in;
+  }
+  &:checked ~ .box .boxMark:after {
+    width: 12px;
+    transition: all .15s ease-in .15s;
+  }
+}
+
+.box {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid transparentize($primary, 0.5);
+  background-color: #fff;
+  transition: all .3s ease;
+  &Mark {
+    position: relative;
+    top: 4px;
+    left: 3px;
+    width: 12px;
+    height: 7px;
+    transform: rotate(-45deg);
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: #fff;
+      border-radius: 1px;
+    }
+    &:before {
+      height: 0;
+      width: 2px;
+      transition: all .15s ease-out .15s;
+    }
+    &:after {
+      top: 5px;
+      height: 2px;
+      width: 0;
+      transition: all .15s ease-out;
+    }
+  }
+}
+
+.label {
+  margin: 0;
+  padding-top: 2px;
+  font-size: 14px;
+}

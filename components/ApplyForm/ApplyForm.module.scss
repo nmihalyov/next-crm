@@ -1,0 +1,16 @@
+.form {
+  display: block;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 120px 20px 30px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.field {
+  width: calc(50% - 20px);
+}

@@ -1,0 +1,35 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.nav {
+  display: flex;
+}
+
+.navItem {
+  position: relative;
+  margin-left: 15px;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: #000;
+    transition: all .3s ease;
+  }
+  &:hover:before {
+    left: 0;
+    width: 100%;  
+  }
+}
