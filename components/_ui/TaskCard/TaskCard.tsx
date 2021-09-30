@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { Task } from '../../../types';
+import type { Task } from '../../../types/task';
 
 import Checkbox from '../Checkbox/Checkbox';
 

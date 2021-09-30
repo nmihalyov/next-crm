@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-import type { Task } from '../../types';
+import type { Task } from '../../types/task';
 
 import Input from '../_ui/Input/Input'
 import Button from '../_ui/Button/Button'
 
-import styles from './ApplyForm.module.scss';
+import styles from './TaskForm.module.scss';
 
-const ApplyForm: React.FC<{
+const TaskForm: React.FC<{
   onApply(data: Task): void
 }> = props => {
   const { onApply } = props;
@@ -18,13 +18,15 @@ const ApplyForm: React.FC<{
     completed: false
   };
 
-  const [formData, setFormData] = useState(defaultState);
+  const [formData, setFormData] = useState<Task>(defaultState);
 
-  const updateFormData = (key: string, value: string): void => {
-    setFormData({
-      ...formData,
-      [key]: value
-    });
+  const updateFormData = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const { name, value } = e.currentTarget;
+  
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const applyTask = (e: React.MouseEvent): void => {
@@ -58,4 +60,4 @@ const ApplyForm: React.FC<{
   );
 };
 
-export default ApplyForm;
+export default TaskForm;

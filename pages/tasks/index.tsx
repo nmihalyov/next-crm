@@ -1,57 +1,54 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import type { Task } from '../../types';
+import type { Task } from '../../types/task';
+import useActions from '../../hooks/useActions';
+import useTypedSelector from '../../hooks/useTypedSelector';
 
-import ApplyForm from '../../components/ApplyForm/ApplyForm';
+import Loader from '../../components/_ui/Loader/Loader';
+import TaskForm from '../../components/TaskForm/TaskForm';
 import TasksList from '../../components/TasksList/TasksList';
 
-const TasksPage: NextPage<{
-  tasks: Array<Task>
-}> = props => {
-  const [tasks, setTasks] = useState([] as Task[]);
+const TasksPage: NextPage = () => {
+  const { addTask, removeTask: removeTaskAction, patchTask: patchTaskAction, fetchTasks } = useActions();
+  const tasks = useTypedSelector(state => state.tasks); 
+  const isLoading = useTypedSelector(state => state.app.isLoading); 
+
+  useEffect(() => {
+    if (!tasks.length) {
+      fetchTasks();
+    }
+  }, []);
 
   const updateTasks = (task: Task): void => {
-    setTasks(prev => [task, ...prev]);
+    addTask(task);
   };
 
   const patchTask = (id: number, completed: boolean): void => {
-    setTasks(prev => prev.map(task => task.id === id ? {...task, completed} : task));
+    patchTaskAction({id, completed});
   };
 
   const removeTask = (id: number): void => {
-    setTasks(prev => prev.filter(task => task.id !== id));
+    removeTaskAction(id);
   };
 
-  useEffect(() => {
-    const localTasks = localStorage.getItem('tasks');
-    const tasks = localTasks ? JSON.parse(localTasks) as Task[] : props.tasks;
-  
-    setTasks(tasks);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
-
-  return (<>
-    <Head>
-      <title>Tasks | Next TS</title>
-    </Head>
-    <ApplyForm onApply={updateTasks} />
-    <TasksList
-      tasks={tasks}
-      onPatch={patchTask}
-      onRemove={removeTask} />
-  </>);
-};
-
-export async function getStaticProps() {
-  const tasksQuery = await fetch('https://jsonplaceholder.typicode.com/todos?_start=1&_limit=10');
-  const tasks = await tasksQuery.json();
-
-  return {props: {tasks}};
+  return (
+    <div className="container">
+      <Head>
+        <title>Tasks | Next TS</title>
+      </Head>
+      <h1>Tasks</h1>
+      <TaskForm onApply={updateTasks} />
+      {isLoading ?
+        <Loader show /> :
+        <TasksList
+          tasks={tasks}
+          onPatch={patchTask}
+          onRemove={removeTask} />
+      }
+    </div>
+  );
 };
 
 export default TasksPage;

@@ -5,7 +5,13 @@ import Link from 'next/link';
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
-  const links = [{label: 'Main', href:'/'}, {label: 'Tasks', href:'/tasks'}, {label: 'About', href:'/about'}];
+  const links = [
+    {label: 'Main', href:'/'},
+    {label: 'Tasks', href:'/tasks'},
+    {label: 'Posts', href:'/posts'},
+    {label: 'Users', href:'/users'},
+    {label: 'About', href:'/about'}
+  ];
 
   return (
     <header className={styles.header}>

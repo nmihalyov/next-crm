@@ -4,7 +4,7 @@ import styles from './Input.module.scss';
 
 const Input: React.FC<{
   value: string | number,
-  onChange(name: string, value: string): void,
+  onChange(event: React.ChangeEvent<HTMLInputElement>): void,
   label: string,
   name: string,
   placeholder: string
@@ -20,7 +20,7 @@ const Input: React.FC<{
         placeholder={placeholder}
         value={value}
         name={name}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(name, e.target.value)} />
+        onChange={onChange} />
     </label>
   );
 };

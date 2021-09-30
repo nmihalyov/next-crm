@@ -3,10 +3,9 @@ import React from 'react';
 import styles from './Checkbox.module.scss';
 
 const Checkbox: React.FC<{
-  children?: React.ReactNode,
   name: string | number,
   checked: boolean,
-  onChange(e: React.ChangeEvent): void
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void
 }> = props => {
   const { children, name, checked, onChange } = props;
 

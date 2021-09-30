@@ -1,0 +1,12 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.empty {
+  opacity: 0.5;
+  width: 100%;
+  text-align: center;
+}

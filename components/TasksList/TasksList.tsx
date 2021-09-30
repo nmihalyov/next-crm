@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { Task } from '../../types';
+import type { Task } from '../../types/task';
 
 import TaskCard from '../_ui/TaskCard/TaskCard';
 
@@ -14,14 +14,14 @@ const TasksList: React.FC<{
   const { tasks, onPatch, onRemove } = props;
 
   return (
-    <div className={styles.list}>
-      {tasks.length ? tasks.map((task: Task) => (
+    <div>
+      {tasks.length ? tasks.map(task =>
         <TaskCard
           key={task.id}
           onPatch={onPatch}
           onRemove={onRemove}
           {...task} />
-      )) : <p className={styles.empty}>No tasks yet</p>}
+      ) : <p className={styles.empty}>No tasks yet</p>}
     </div>
   );
 };
