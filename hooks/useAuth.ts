@@ -1,8 +1,8 @@
 import useLocalStorage from "./useLocalStorage";
 
 const useAuth = () => {
-  const [isAuth, setIsAuth] = useLocalStorage('isAuth', false);
-  const [user, setUser] = useLocalStorage('user', null);
+  const [isAuth, setIsAuth] = useLocalStorage<boolean>('isAuth', false);
+  const [user, setUser] = useLocalStorage<Object | null>('user', null);
 
   const logout = (): void => {
     setIsAuth(false);

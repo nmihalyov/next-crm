@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
-import type { NextPage } from 'next';
+import { useState, useEffect } from 'react';
+import type { NextPage, GetServerSideProps } from 'next';
+import API from '../../utils/api';
 
-import { Typography } from 'antd';
+import { PageHeader } from 'antd';
 import type { Task } from '../../types/task';
 import useActions from '../../hooks/useActions';
 import useTypedSelector from '../../hooks/useTypedSelector';
@@ -11,20 +12,27 @@ import Loader from '../../components/_ui/Loader/Loader';
 import TaskForm from '../../components/TaskForm/TaskForm';
 import TasksList from '../../components/TasksList/TasksList';
 
-const TasksPage: NextPage = () => {
+const TasksPage: NextPage<{
+  tasks: Task[]
+}> = props => {
+  const [tasks, setTasks] = useState<Task[]>(props.tasks);
   const {
       addTask,
       removeTask: removeTaskAction,
       patchTask: patchTaskAction,
-      fetchTasks
+      loadTasks
   } = useActions();
-  const { data: tasks, isFetching, isFetched } = useTypedSelector(state => state.tasks); 
+  const { data: storedTasks, isFetching } = useTypedSelector(state => state.tasks); 
 
   useEffect(() => {
-    if (!isFetched) {
-      fetchTasks();
+    if (!storedTasks.length) {
+      loadTasks(tasks);
     }
   }, []);
+
+  useEffect(() => {
+    setTasks(storedTasks);
+  }, [storedTasks]);
 
   const updateTasks = (task: Task): void => {
     addTask(task);
@@ -40,17 +48,25 @@ const TasksPage: NextPage = () => {
 
   return (
     <MainLayout title="Tasks">
-      <Typography.Title level={2}>Tasks</Typography.Title>
+      <PageHeader title={<span style={{fontSize: 28, fontWeight: 700}}>Tasks</span>} />
       <TaskForm onApply={updateTasks} />
-      {isFetching ?
-        <Loader /> :
         <TasksList
           tasks={tasks}
           onPatch={patchTask}
           onRemove={removeTask} />
-      }
+      {isFetching && <Loader />}
     </MainLayout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const tasks = await API.get<Task[]>('/todos?_limit=10');
+
+  return {
+    props: {
+      tasks
+    }
+  };
 };
 
 export default TasksPage;

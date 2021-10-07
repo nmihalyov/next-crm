@@ -55,7 +55,10 @@ const tasksReducer = (state = defaultState, action: TasksAction): TasksState => 
         ...state,
         isFetched: true,
         isFetching: false,
-        data: action.payload
+        data: [
+          ...state.data,
+          ...action.payload
+        ]
       };
     case TasksActionTypes.SET_FETCHING:
       return {

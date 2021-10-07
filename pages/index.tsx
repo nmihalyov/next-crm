@@ -8,7 +8,7 @@ const HomePage: NextPage = () => {
   return (
     <MainLayout title="Main">
       <Row justify="center" align="middle">
-        <Typography.Title>Welcome to Next CRM</Typography.Title>
+        <Typography.Title style={{fontWeight: 900}}>Welcome to Next CRM</Typography.Title>
       </Row>
     </MainLayout>
   );

@@ -30,7 +30,10 @@ const postsReducer = (state = defaultState, action: PostsAction): PostsState => 
         ...state,
         isFetched: true,
         isFetching: false,
-        data: action.payload
+        data: [
+          ...state.data,
+          ...action.payload
+        ]
       };
     case PostsActionTypes.SET_FETCHING:
       return {
