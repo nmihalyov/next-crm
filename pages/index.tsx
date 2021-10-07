@@ -1,20 +1,17 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 
-import { Layout, Row, Typography } from 'antd';
+import { Row, Typography } from 'antd';
+
+import MainLayout from '../layouts/MainLayout';
 
 const HomePage: NextPage = () => {
-  return (<>
-    <Head>
-      <title>Main | Next CRM</title>
-    </Head>
-
-    <Layout>
-      <Row justify="center" align="middle" style={{minHeight: '100vh'}}>
+  return (
+    <MainLayout title="Main">
+      <Row justify="center" align="middle">
         <Typography.Title>Welcome to Next CRM</Typography.Title>
       </Row>
-    </Layout>
-  </>);
+    </MainLayout>
+  );
 };
 
 export default HomePage;

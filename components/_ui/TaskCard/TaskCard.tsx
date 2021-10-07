@@ -1,5 +1,5 @@
 import type { Task } from '../../../types/task';
-import { Row, Button, Typography, Checkbox } from 'antd';
+import { Modal, Row, Button, Typography, Checkbox } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 
 import styles from './TaskCard.module.scss';
@@ -10,9 +10,15 @@ const TaskCard: React.FC<Task & {
 }> = props => {
   const { id, title, completed, onPatch, onRemove } = props;
   const removeHandler = (id: number): void => {
-    if (confirm('Are you sure you want to delete this task?')) {
-      onRemove(id);
-    }
+    Modal.confirm({
+      title: 'Are you sure you want to delete this task?',
+      okText: 'Yes',
+      okType: 'danger',
+      cancelText: 'No',
+      onOk() {
+        onRemove(id);
+      }
+    });
   }
 
   return (

@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 
-import { Layout, Typography } from 'antd';
+import { Typography } from 'antd';
 import type { Task } from '../../types/task';
 import useActions from '../../hooks/useActions';
 import useTypedSelector from '../../hooks/useTypedSelector';
 
+import MainLayout from '../../layouts/MainLayout';
 import Loader from '../../components/_ui/Loader/Loader';
 import TaskForm from '../../components/TaskForm/TaskForm';
 import TasksList from '../../components/TasksList/TasksList';
@@ -39,22 +39,17 @@ const TasksPage: NextPage = () => {
   };
 
   return (
-    <Layout>
-      <Head>
-        <title>Tasks | Next CRM</title>
-      </Head>
-      <div className="container">
-        <Typography.Title level={2}>Tasks</Typography.Title>
-        <TaskForm onApply={updateTasks} />
-        {isFetching ?
-          <Loader /> :
-          <TasksList
-            tasks={tasks}
-            onPatch={patchTask}
-            onRemove={removeTask} />
-        }
-      </div>
-    </Layout>
+    <MainLayout title="Tasks">
+      <Typography.Title level={2}>Tasks</Typography.Title>
+      <TaskForm onApply={updateTasks} />
+      {isFetching ?
+        <Loader /> :
+        <TasksList
+          tasks={tasks}
+          onPatch={patchTask}
+          onRemove={removeTask} />
+      }
+    </MainLayout>
   );
 };
 
