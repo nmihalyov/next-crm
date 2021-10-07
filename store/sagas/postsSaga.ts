@@ -1,8 +1,7 @@
 import { put, takeEvery, call } from 'typed-redux-saga';
 
 import { Post, PostsActionTypes } from '../../types/post';
-import { loadPosts } from '../actions/postsActions';
-import { showLoader, hideLoader } from '../actions/appActions';
+import { loadPosts, setFetchingPosts } from '../actions/postsActions';
 
 const fetchData = async (): Promise<Post[]> => {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10');
@@ -12,11 +11,11 @@ const fetchData = async (): Promise<Post[]> => {
 };
 
 const fetchPostsWorker = function *() {
-  yield put(showLoader());
+  yield put(setFetchingPosts(true));
   const posts = yield* call(fetchData);
-  
+
   yield put(loadPosts(posts));
-  yield put(hideLoader());
+  yield put(setFetchingPosts(false));
 };
 
 const fetchPostsWatcher = function *() {

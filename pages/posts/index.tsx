@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import type { NextPage } from 'next';
+import Head from 'next/head';
 
+import { Layout, Typography } from 'antd';
 import type { Post } from '../../types/post';
 import useActions from '../../hooks/useActions';
 import useTypedSelector from '../../hooks/useTypedSelector';
@@ -11,11 +13,10 @@ import PostsGrid from '../../components/PostsGrid/PostsGrid';
 
 const PostsPage: NextPage = () => {
   const { createPost: createPostAction, fetchPosts } = useActions();
-  const posts = useTypedSelector(state => state.posts);
-  const isLoading = useTypedSelector(state => state.app.isLoading);
+  const { data: posts, isFetching, isFetched } = useTypedSelector(state => state.posts);
 
   useEffect(() => {
-    if (!posts.length) {
+    if (!isFetched) {
       fetchPosts();
     }
   }, []);
@@ -25,14 +26,19 @@ const PostsPage: NextPage = () => {
   }
 
   return (
-    <div className="container">
-      <h1>Posts</h1>
-      <PostForm onApply={createPost} />
-      {isLoading ?
-        <Loader show /> :
-        <PostsGrid posts={posts} />
-      }
-    </div>
+    <Layout>
+      <Head>
+        <title>Posts | Next CRM</title>
+      </Head>
+      <div className="container">
+        <Typography.Title level={2}>Posts</Typography.Title>
+        <PostForm onApply={createPost} />
+        {isFetching ?
+          <Loader /> :
+          <PostsGrid posts={posts} />
+        }
+      </div>
+    </Layout>
   );
 };
 

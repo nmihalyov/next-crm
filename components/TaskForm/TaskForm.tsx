@@ -1,62 +1,55 @@
-import React, { useState } from 'react';
-
 import type { Task } from '../../types/task';
-
-import Input from '../_ui/Input/Input'
-import Button from '../_ui/Button/Button'
-
-import styles from './TaskForm.module.scss';
+import useActions from '../../hooks/useActions';
+import useInput from '../../hooks/useInput';
+import useTypedSelector from '../../hooks/useTypedSelector';
+import { Form, Input, Button } from 'antd';
 
 const TaskForm: React.FC<{
   onApply(data: Task): void
 }> = props => {
   const { onApply } = props;
-  const defaultState = {
-    userId: 1,
-    id: 0,
-    title: '',
-    completed: false
-  };
-
-  const [formData, setFormData] = useState<Task>(defaultState);
-
-  const updateFormData = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = e.currentTarget;
-  
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const input = useInput();
+  const [form] = Form.useForm();
+  const isApplying = useTypedSelector(state => state.tasks.isApplying);
+  const { setApplyingTask } = useActions();
 
   const applyTask = (e: React.MouseEvent): void => {
-    e.preventDefault();
-
-    if (formData.title.trim()) {
-      setFormData(defaultState);
-      onApply({
-        ...formData,
-        id: Date.now()
-      });
-    }
+    setApplyingTask(true);
+    onApply({
+      userId: 1,
+      id: Date.now(),
+      title: input.value,
+      completed: false
+    });
+    input.clear();
+    form.resetFields();
   };
 
   return (
-    <form className={styles.form}>
-      <div className={styles.row}>
-        <div className={styles.field}>
-          <Input
-            value={formData.title}
-            onChange={updateFormData}
-            label="Task name:"
-            name="title"
-            placeholder="Enter task name" />
-        </div>
-        <div className={styles.field}>
-          <Button onClick={applyTask}>Apply new task</Button>
-        </div>
-      </div>
-    </form>
+    <Form
+      autoComplete="off"
+      form={form}
+      labelCol={{span: 3}}
+      onFinish={applyTask}>
+
+      <Form.Item
+        label="Task name"
+        name="title"
+        rules={[{required: true, message: 'Please, enter task title'}]}>
+        <Input {...input.bind} name="title" allowClear />
+      </Form.Item>
+
+      <Form.Item wrapperCol={{offset: 3}}>
+        <Button
+          type="primary"
+          htmlType="submit"
+          size="large"
+          loading={isApplying}>
+          Apply task
+        </Button>
+      </Form.Item>
+
+    </Form>
   );
 };
 

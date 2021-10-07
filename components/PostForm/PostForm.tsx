@@ -1,67 +1,70 @@
-import React, { useState } from 'react';
-
+import { Form, Input, Button } from 'antd';
 import type { Post } from '../../types/post';
-import styles from './PostForm.module.scss';
-
-import Input from '../_ui/Input/Input';
-import Button from '../_ui/Button/Button';
+import useInput from '../../hooks/useInput';
+import useActions from '../../hooks/useActions';
+import useTypedSelector from '../../hooks/useTypedSelector';
 
 const PostForm: React.FC<{
   onApply(data: Post): void
 }> = props => {
   const { onApply } = props;
-  const defaultState: Post = {
-    userId: 1,
-    id: 0,
-    title: '',
-    body: ''
-  };
+  const titleInput = useInput();
+  const bodyInput = useInput();
+  const { setApplyingPost } = useActions();
+  const isApplying = useTypedSelector(state => state.posts.isApplying);
+  const [form] = Form.useForm();
 
-  const [formData, setFormData] = useState<Post>(defaultState);
+  const applyPost = (): void => {
+    setApplyingPost(true);
+    onApply({
+      userId: 1,
+      title: titleInput.value,
+      body: bodyInput.value,
+      id: Date.now()
+    });
 
-  const updateFormData = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.currentTarget;
-
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const applyPost = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-
-    if (formData.title.trim() && formData.body.trim()) {
-      onApply({
-        ...formData,
-        id: Date.now()
-      })
-      setFormData(defaultState);
-    }
+    titleInput.clear();
+    bodyInput.clear();
+    form.resetFields();
   };
 
   return (
-    <form className={styles.form}>
-      <div className={styles.row}>
-        <Input
-          value={formData.title}
-          label="Title:"
-          name="title"
-          placeholder="Enter post title"
-          onChange={updateFormData} />
-      </div>
-      <div className={styles.row}>
-        <Input
-          value={formData.body}
-          label="Post:"
+    <Form
+      autoComplete="off"
+      form={form}
+      labelCol={{span: 2}}
+      onFinish={applyPost}>
+
+      <Form.Item
+        label="Title"
+        name="title"
+        rules={[{required: true, message: 'Please, enter post title'}]}>
+        <Input {...titleInput.bind} name="title" allowClear />
+      </Form.Item>
+
+      <Form.Item
+        label="Body"
+        name="body"
+        rules={[{required: true, message: 'Please, enter post text'}]}>
+        <Input.TextArea
+          {...bodyInput.bind}
+          rows={4}
+          style={{resize: "none"}}
           name="body"
-          placeholder="Enter post text"
-          onChange={updateFormData} />
-      </div>
-      <div className={styles.row}>
-        <Button onClick={applyPost}>Apply post</Button>
-      </div>
-    </form>
+          allowClear />
+      </Form.Item>
+
+      <Form.Item wrapperCol={{offset: 2}}>
+        <Button
+          type="primary"
+          htmlType="submit"
+          size="large"
+          loading={isApplying}>
+          Apply post
+        </Button>
+      </Form.Item>
+
+    </Form>
   );
 };
 

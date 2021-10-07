@@ -1,5 +1,5 @@
 {
-  "name": "next-ts",
+  "name": "next-crm",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@types/react": "17.0.21",
     "@types/react-redux": "^7.1.18",
+    "antd": "^4.16.13",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",

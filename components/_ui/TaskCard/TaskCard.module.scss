@@ -1,7 +1,6 @@
 @import '../../../styles//variables';
 
 .card {
-  display: flex;
   padding: 20px 0;
   &:not(:last-child) {
     border-bottom: 1px solid transparentize($primary, .9);
@@ -9,25 +8,8 @@
 }
 
 .title {
-  margin: 0;
   transition: opacity .3s ease;
   &Done {
     opacity: 0.5;
   }
-}
-
-.remove {
-  margin-left: auto;
-  display: inline-flex;
-  width: 20px;
-  height: 20px;
-  padding: 3px 6px;
-  border: none;
-  text-decoration: none;
-  transition: all .3s ease;
-  color: #fff;
-  cursor: pointer;
-  outline: 0;
-  text-align: center;
-  background-color: $primary;
 }

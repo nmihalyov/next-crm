@@ -6,11 +6,13 @@ export type Task = {
 };
 
 export enum TasksActionTypes {
-  ADD_TASK = 'ADD_TASK',
-  PATCH_TASK = 'PATCH_TASK',
-  DELETE_TASK = 'DELETE_TASK',
-  FETCH_TASKS = 'FETCH_TASKS',
-  LOAD_TASKS = 'LOAD_TASK'
+  ADD_TASK = 'TASK/ADD_TASK',
+  PATCH_TASK = 'TASK/PATCH_TASK',
+  DELETE_TASK = 'TASK/DELETE_TASK',
+  FETCH_TASKS = 'TASK/FETCH_TASKS',
+  LOAD_TASKS = 'TASK/LOAD_TASK',
+  SET_FETCHING = 'TASK/SET_FETCHING',
+  SET_APPLYING = 'TASK/SET_APPLYING'
 };
 
 type AddTaskAction = {
@@ -40,4 +42,21 @@ type LoadTaskAction = {
   payload: Task[]
 };
 
-export type TasksAction = AddTaskAction | PatchTaskAction | DeleteTaskAction | FetchTaskAction | LoadTaskAction;
+type SetFetchingTasksAction = {
+  type: TasksActionTypes.SET_FETCHING,
+  payload: boolean
+};
+
+type SetApplyingTasksAction = {
+  type: TasksActionTypes.SET_APPLYING,
+  payload: boolean
+};
+
+export type TasksAction =
+  AddTaskAction |
+  PatchTaskAction |
+  DeleteTaskAction |
+  FetchTaskAction |
+  LoadTaskAction |
+  SetFetchingTasksAction |
+  SetApplyingTasksAction;

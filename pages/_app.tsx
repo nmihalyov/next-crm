@@ -2,9 +2,9 @@ import '../styles/globals.css';
 import { Provider } from 'react-redux';
 import type { AppProps } from 'next/app';
 
-import AppShell from '../components/AppShell/AppShell';
-
 import store from '../store';
+
+import AppShell from '../components/AppShell/AppShell';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

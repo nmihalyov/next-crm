@@ -1,8 +1,7 @@
 import { put, takeEvery, call } from 'typed-redux-saga';
 
 import { Task, TasksActionTypes } from '../../types/task';
-import { loadTasks } from '../actions/tasksActions';
-import { showLoader, hideLoader } from '../actions/appActions';
+import { loadTasks, setFetchingTasks } from '../actions/tasksActions';
 
 const fetchData = async (): Promise<Task[]> => {
   const res = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
@@ -12,11 +11,11 @@ const fetchData = async (): Promise<Task[]> => {
 };
 
 const fetchTasksWorker = function *() {
-  yield put(showLoader());
+  yield put(setFetchingTasks(true));
   const tasks = yield* call(fetchData);
   
   yield put(loadTasks(tasks));
-  yield put(hideLoader());
+  yield put(setFetchingTasks(false));
 };
 
 const fetchTasksWatcher = function *() {

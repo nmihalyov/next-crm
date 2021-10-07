@@ -1,5 +1,4 @@
-import React from 'react';
-
+import { Empty } from 'antd';
 import type { Post } from '../../types/post';
 import styles from './PostsGrid.module.scss';
 
@@ -12,7 +11,10 @@ const PostsGrid: React.FC<{
     <div className={styles.grid}>
       {posts.length ? 
         posts.map(post => <PostCard key={post.id} {...post} />) :
-        <p className={styles.empty}>No posts yet</p>
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description="No posts yet"
+          className={styles.empty} />
       }
     </div>
   );

@@ -1,5 +1,4 @@
-import React from 'react';
-
+import { Card, Typography } from 'antd';
 import type { Post } from '../../../types/post';
 import styles from './PostCard.module.scss';
 
@@ -7,10 +6,12 @@ const PostCard: React.FC<Post> = props => {
   const { title, body } = props;
 
   return (
-    <div className={styles.card}>
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.body}>{body}</p>
-    </div>
+    <Card
+      title={title}
+      className={styles.card}
+      hoverable>
+      <Typography.Text>{body}</Typography.Text>
+    </Card>
   );
 };
 

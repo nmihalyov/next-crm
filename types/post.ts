@@ -6,9 +6,11 @@ export type Post = {
 };
 
 export enum PostsActionTypes {
-  FETCH_POSTS = 'FETCH_POSTS',
-  LOAD_POSTS = 'LOAD_POSTS',
-  CREATE_POST = 'CREATE_POST'
+  FETCH_POSTS = 'POST/FETCH_POSTS',
+  LOAD_POSTS = 'POST/LOAD_POSTS',
+  CREATE_POST = 'POST/CREATE_POST',
+  SET_FETCHING = 'POST/SET_FETCHING',
+  SET_APPLYING = 'POST/SET_APPLYING'
 };
 
 type CreatePostAction = {
@@ -25,4 +27,19 @@ type LoadPostsAction = {
   payload: Post[]
 };
 
-export type PostsAction = CreatePostAction | LoadPostsAction | FetchPostsAction;
+type SetFetchingPostsAction = {
+  type: PostsActionTypes.SET_FETCHING,
+  payload: boolean
+};
+
+type SetApplyingPostsAction = {
+  type: PostsActionTypes.SET_APPLYING,
+  payload: boolean
+};
+
+export type PostsAction =
+  CreatePostAction |
+  LoadPostsAction |
+  FetchPostsAction |
+  SetFetchingPostsAction |
+  SetApplyingPostsAction;

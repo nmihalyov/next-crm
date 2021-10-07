@@ -1,10 +1,7 @@
-import React from 'react';
-
 import type { Task } from '../../types/task';
+import { Empty } from 'antd';
 
 import TaskCard from '../_ui/TaskCard/TaskCard';
-
-import styles from './TasksList.module.scss';
 
 const TasksList: React.FC<{
   tasks: Array<Task>,
@@ -21,7 +18,7 @@ const TasksList: React.FC<{
           onPatch={onPatch}
           onRemove={onRemove}
           {...task} />
-      ) : <p className={styles.empty}>No tasks yet</p>}
+      ) : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No tasks yet" />}
     </div>
   );
 };

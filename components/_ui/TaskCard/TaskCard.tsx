@@ -1,8 +1,6 @@
-import React from 'react';
-
 import type { Task } from '../../../types/task';
-
-import Checkbox from '../Checkbox/Checkbox';
+import { Row, Button, Typography, Checkbox } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
 
 import styles from './TaskCard.module.scss';
 
@@ -18,12 +16,17 @@ const TaskCard: React.FC<Task & {
   }
 
   return (
-    <div className={styles.card}>
-      <Checkbox name={id} checked={completed} onChange={() => onPatch(id, !completed)}>
-        <span className={`${styles.title} ${completed ? styles.titleDone : ''}`}>{title}</span>
+    <Row className={styles.card} justify="space-between" align="middle">
+      <Checkbox checked={completed} onChange={() => onPatch(id, !completed)}>
+        <Typography.Text className={`${styles.title} ${completed ? styles.titleDone : ''}`}>{title}</Typography.Text>
       </Checkbox>
-      <button className={styles.remove} onClick={() => removeHandler(id)}>&times;</button>
-    </div>
+      <Button
+        danger
+        ghost
+        type="primary"
+        icon={<DeleteOutlined />}
+        onClick={() => removeHandler(id)} />
+    </Row>
   );
 };
 

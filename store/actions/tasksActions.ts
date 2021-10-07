@@ -23,3 +23,13 @@ export const removeTask = (id: number) => ({
   type: TasksActionTypes.DELETE_TASK,
   payload: id
 });
+
+export const setFetchingTasks = (isFetching: boolean) => ({
+  type: TasksActionTypes.SET_FETCHING,
+  payload: isFetching
+});
+
+export const setApplyingTask = (isApplying: boolean) => ({
+  type: TasksActionTypes.SET_APPLYING,
+  payload: isApplying
+});
