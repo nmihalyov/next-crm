@@ -1,29 +1,7 @@
-@import '../../../styles/variables.scss';
-
 .loader {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   margin: 20px 0;
-}
-
-.spinner {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 3px solid transparentize($primary, .7);
-  border-top: 2px solid $primary;
-  animation: spin 1s linear infinite;
-  transform: rotate(0);
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }

@@ -1,9 +1,11 @@
+import { LoadingOutlined } from '@ant-design/icons';
+
 import styles from './Loader.module.scss';
 
 const Loader: React.FC = () => {
   return (
     <div className={styles.loader}>
-      <div className={styles.spinner} />
+      <LoadingOutlined style={{fontSize: 30}} />
     </div>
   );
 };
