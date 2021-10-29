@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Task } from '../../types/task';
 import useActions from '../../hooks/useActions';
 import useInput from '../../hooks/useInput';
@@ -13,7 +14,7 @@ const TaskForm: React.FC<{
   const isApplying = useTypedSelector(state => state.tasks.isApplying);
   const { setApplyingTask } = useActions();
 
-  const applyTask = (e: React.MouseEvent): void => {
+  const applyTask = (): void => {
     setApplyingTask(true);
     onApply({
       userId: 1,
@@ -53,4 +54,4 @@ const TaskForm: React.FC<{
   );
 };
 
-export default TaskForm;
+export default React.memo(TaskForm);

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-type eventType = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+type EventType = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 const useInput = (initial = '') => {
   const [value, setValue] = useState(initial);
-  const onChange = (e: eventType): void => {
+  const onChange = (e: EventType): void => {
     setValue(e.target.value);
   };
   const clear = (): void => {

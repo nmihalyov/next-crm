@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { Card, Typography } from 'antd';
 import type { Post } from '../../../types/post';
@@ -18,4 +19,4 @@ const PostCard: React.FC<Post> = props => {
   );
 };
 
-export default PostCard;
+export default React.memo(PostCard);

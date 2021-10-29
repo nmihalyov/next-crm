@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import type { NextPage, GetServerSideProps } from 'next';
 import API from '../../utils/api';
 
@@ -15,19 +15,14 @@ import PostsGrid from '../../components/PostsGrid/PostsGrid';
 const PostsPage: NextPage<{
   posts: Post[]
 }> = props => {
-  const [posts, setPosts] = useState<Post[]>(props.posts);
   const { createPost: createPostAction, loadPosts } = useActions();
-  const { data: storedPosts, isFetching } = useTypedSelector(state => state.posts);
+  const { data: posts, isFetching } = useTypedSelector(state => state.posts);
 
   useEffect(() => {
-    if (!storedPosts.length) {
-      loadPosts(posts);
+    if (!posts.length) {
+      loadPosts(props.posts);
     }
   }, []);
-
-  useEffect(() => {
-    setPosts(storedPosts);
-  }, [storedPosts]);
 
   const createPost = (post: Post) => {
     createPostAction(post);

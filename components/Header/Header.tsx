@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRouter } from 'next/router';
 import { Layout, Row, Menu, Typography, Button } from 'antd';
 import {
@@ -40,4 +41,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

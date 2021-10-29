@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import type { NextPage, GetServerSideProps } from 'next';
 import API from '../../utils/api';
 
@@ -15,28 +15,23 @@ import TasksList from '../../components/TasksList/TasksList';
 const TasksPage: NextPage<{
   tasks: Task[]
 }> = props => {
-  const [tasks, setTasks] = useState<Task[]>(props.tasks);
   const {
       addTask,
       removeTask: removeTaskAction,
       patchTask: patchTaskAction,
       loadTasks
   } = useActions();
-  const { data: storedTasks, isFetching } = useTypedSelector(state => state.tasks); 
+  const { data: tasks, isFetching } = useTypedSelector(state => state.tasks); 
 
   useEffect(() => {
-    if (!storedTasks.length) {
-      loadTasks(tasks);
+    if (!tasks.length) {
+      loadTasks(props.tasks);
     }
   }, []);
 
-  useEffect(() => {
-    setTasks(storedTasks);
-  }, [storedTasks]);
-
-  const updateTasks = (task: Task): void => {
+  const updateTasks = useCallback((task: Task): void => {
     addTask(task);
-  };
+  }, []);
 
   const patchTask = (id: number, completed: boolean): void => {
     patchTaskAction({id, completed});
@@ -50,10 +45,10 @@ const TasksPage: NextPage<{
     <MainLayout title="Tasks">
       <PageHeader title={<span style={{fontSize: 28, fontWeight: 700}}>Tasks</span>} />
       <TaskForm onApply={updateTasks} />
-        <TasksList
-          tasks={tasks}
-          onPatch={patchTask}
-          onRemove={removeTask} />
+      <TasksList
+        tasks={tasks}
+        onPatch={patchTask}
+        onRemove={removeTask} />
       {isFetching && <Loader />}
     </MainLayout>
   );

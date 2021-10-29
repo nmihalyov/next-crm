@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import type { Task } from '../../types/task';
 import { Empty } from 'antd';
 
@@ -10,13 +11,16 @@ const TasksList: React.FC<{
 }>= props => {
   const { tasks, onPatch, onRemove } = props;
 
+  const memoizedOnPatch = useCallback(onPatch, []);
+  const memoizedOnRemove = useCallback(onRemove, []);
+
   return (
     <div>
       {tasks.length ? tasks.map(task =>
         <TaskCard
           key={task.id}
-          onPatch={onPatch}
-          onRemove={onRemove}
+          onPatch={memoizedOnPatch}
+          onRemove={memoizedOnRemove}
           {...task} />
       ) : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No tasks yet" />}
     </div>

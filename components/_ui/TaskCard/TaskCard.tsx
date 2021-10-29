@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Task } from '../../../types/task';
 import { Modal, Row, Button, Typography, Checkbox } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
@@ -9,7 +10,8 @@ const TaskCard: React.FC<Task & {
   onRemove(id: number): void,
 }> = props => {
   const { id, title, completed, onPatch, onRemove } = props;
-  const removeHandler = (id: number): void => {
+  const onChange = () => onPatch(id, !completed);
+  const removeHandler = (): void => {
     Modal.confirm({
       title: 'Are you sure you want to delete this task?',
       okText: 'Yes',
@@ -19,11 +21,11 @@ const TaskCard: React.FC<Task & {
         onRemove(id);
       }
     });
-  }
+  };
 
   return (
     <Row className={styles.card} justify="space-between" align="middle">
-      <Checkbox checked={completed} onChange={() => onPatch(id, !completed)}>
+      <Checkbox checked={completed} onChange={onChange}>
         <Typography.Text className={`${styles.title} ${completed ? styles.titleDone : ''}`}>{title}</Typography.Text>
       </Checkbox>
       <Button
@@ -31,9 +33,9 @@ const TaskCard: React.FC<Task & {
         ghost
         type="primary"
         icon={<DeleteOutlined />}
-        onClick={() => removeHandler(id)} />
+        onClick={removeHandler} />
     </Row>
   );
 };
 
-export default TaskCard;
+export default React.memo(TaskCard);
