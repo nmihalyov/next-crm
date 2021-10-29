@@ -2,6 +2,7 @@ module.exports = {
   collectCoverageFrom: [
     '**/*.{js,jsx,ts,tsx}',
     '!.next/**',
+    '!coverage/**',
     '!**/*.d.ts',
     '!**/node_modules/**',
   ],

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { GetServerSideProps, NextPage, GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
-import { PageHeader, Typography, Divider, message } from 'antd';
+import { PageHeader, Typography, Divider, Tooltip, message } from 'antd';
 import API from '../../utils/api';
 
 import type { Comment } from '../../types/comment';
@@ -39,8 +39,8 @@ const PostDetailPage: NextPage<{
     <MainLayout title={post.title}>
       <PageHeader
         onBack={router.back}
-        title={<span style={{fontSize: 28, fontWeight: 700}}>{post.title}</span>}
-        subTitle={`by ${user.username} <${user.email}>`} />
+        title={<Tooltip title={post.title}><span style={{fontSize: 28, fontWeight: 700}}>{post.title}</span></Tooltip>}
+        subTitle={<Tooltip title={`by ${user.username} <${user.email}>`}>{`by ${user.username} <${user.email}>`}</Tooltip>} />
 
       <Typography.Paragraph>{post.body}</Typography.Paragraph>
 
