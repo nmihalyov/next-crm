@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, PropsWithChildren } from 'react';
 import type { NextPage, GetServerSideProps } from 'next';
 import API from '../../utils/api';
 
@@ -12,9 +12,11 @@ import Loader from '../../components/_ui/Loader/Loader';
 import PostForm from '../../components/PostForm/PostForm';
 import PostsGrid from '../../components/PostsGrid/PostsGrid';
 
-const PostsPage: NextPage<{
+type PostsPageProps = {
   posts: Post[]
-}> = props => {
+};
+
+const PostsPage: NextPage<PostsPageProps> = (props: PropsWithChildren<PostsPageProps>) => {
   const { createPost: createPostAction, loadPosts } = useActions();
   const { data: posts, isFetching } = useTypedSelector(state => state.posts);
 

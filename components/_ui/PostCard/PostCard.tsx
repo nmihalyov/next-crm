@@ -1,13 +1,13 @@
-import React from 'react';
+import { FC, memo } from 'react';
 import Link from 'next/link';
 import { Card, Tooltip, Typography } from 'antd';
 import type { Post } from '../../../types/post';
 import styles from './PostCard.module.scss';
 
-const PostCard: React.FC<Post> = props => {
+const PostCard: FC<Post> = props => {
   const { title: encodedTitle, body, id } = props;
   const title = decodeURI(encodedTitle);
-  const CardItem: React.FC = () =>
+  const CardItem: FC = () =>
     <Card
       title={<Tooltip title={title}>{title}</Tooltip>}
       className={styles.card}
@@ -26,4 +26,4 @@ const PostCard: React.FC<Post> = props => {
   );
 };
 
-export default React.memo(PostCard);
+export default memo(PostCard);

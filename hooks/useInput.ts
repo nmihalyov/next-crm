@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 
-type EventType = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+type EventType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 const useInput = (initial = '') => {
   const [value, setValue] = useState(initial);

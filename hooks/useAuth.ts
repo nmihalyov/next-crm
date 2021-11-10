@@ -1,4 +1,4 @@
-import useLocalStorage from "./useLocalStorage";
+import useLocalStorage from './useLocalStorage';
 
 const useAuth = () => {
   const [isAuth, setIsAuth] = useLocalStorage<boolean>('isAuth', false);

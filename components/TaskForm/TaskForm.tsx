@@ -1,11 +1,11 @@
-import React from 'react';
+import { FC, memo } from 'react';
 import type { Task } from '../../types/task';
 import useActions from '../../hooks/useActions';
 import useInput from '../../hooks/useInput';
 import useTypedSelector from '../../hooks/useTypedSelector';
 import { Form, Input, Button } from 'antd';
 
-const TaskForm: React.FC<{
+const TaskForm: FC<{
   onApply(data: Task): void
 }> = props => {
   const { onApply } = props;
@@ -54,4 +54,4 @@ const TaskForm: React.FC<{
   );
 };
 
-export default React.memo(TaskForm);
+export default memo(TaskForm);

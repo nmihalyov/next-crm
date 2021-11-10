@@ -5,7 +5,7 @@ class API {
     try {
       const response = await fetch(API.BASE_URL + url);
       const data: T = await response.json();
-  
+
       return data;
     } catch (err) {
       throw err.message;

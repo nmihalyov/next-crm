@@ -1,10 +1,11 @@
+import { FC } from 'react';
 import { Form, Input, Button } from 'antd';
 import type { Post } from '../../types/post';
 import useInput from '../../hooks/useInput';
 import useActions from '../../hooks/useActions';
 import useTypedSelector from '../../hooks/useTypedSelector';
 
-const PostForm: React.FC<{
+const PostForm: FC<{
   onApply(data: Post): void
 }> = props => {
   const { onApply } = props;
@@ -49,7 +50,7 @@ const PostForm: React.FC<{
         <Input.TextArea
           {...bodyInput.bind}
           rows={4}
-          style={{resize: "none"}}
+          style={{resize: 'none'}}
           name="body"
           allowClear />
       </Form.Item>

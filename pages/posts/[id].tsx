@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, PropsWithChildren } from 'react';
 import type { GetServerSideProps, NextPage, GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
 import { PageHeader, Typography, Divider, Tooltip, message } from 'antd';
@@ -12,10 +12,12 @@ import MainLayout from '../../layouts/MainLayout'
 import Loader from '../../components/_ui/Loader/Loader';
 import CommentComponent from '../../components/Comment/Comment';
 
-const PostDetailPage: NextPage<{
+type PostDetailPageProps = {
   post: Post,
   user: User
-}> = props => {
+};
+
+const PostDetailPage: NextPage<PostDetailPageProps> = (props: PropsWithChildren<PostDetailPageProps>) => {
   const { post, user } = props;
   const [comments, setComments] = useState<Comment[] | null>(null);
   const [commentsLoading, setCommentsLoading] = useState(false);
@@ -25,14 +27,14 @@ const PostDetailPage: NextPage<{
     setCommentsLoading(true);
 
     API.get<Comment[]>(`/posts/${router.query.id}/comments`)
-    .then(res => {
-      setComments(res);
-    })
-    .catch((error: string) => {
-      const errorMessage = 'Error while load comments: ' + error;
-      message.error(errorMessage, 7)
-    })
-    .finally(() => setCommentsLoading(false));
+      .then(res => {
+        setComments(res);
+      })
+      .catch((error: string) => {
+        const errorMessage = 'Error while load comments: ' + error;
+        message.error(errorMessage, 7)
+      })
+      .finally(() => setCommentsLoading(false));
   }, []);
 
   return (
@@ -45,10 +47,12 @@ const PostDetailPage: NextPage<{
       <Typography.Paragraph>{post.body}</Typography.Paragraph>
 
       {commentsLoading && <Loader />}
-      {comments?.length ? <>
+      {comments?.length
+        ? <>
         <Divider style={{marginTop: 50}} orientation="left">Comments</Divider>
         {comments.map(el => <CommentComponent key={el.id} {...el} />)}
-      </> : null}
+      </>
+        : null}
     </MainLayout>
   );
 };

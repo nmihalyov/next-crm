@@ -1,10 +1,11 @@
+import { FC, ReactNode } from 'react';
 import Head from 'next/head';
 import { Layout } from 'antd';
 
 import Header from '../components/Header/Header';
 
-const MainLayout: React.FC<{
-  children: React.ReactNode,
+const MainLayout: FC<{
+  children: ReactNode,
   title?: string
 }> = props => {
   const { children, title } = props;

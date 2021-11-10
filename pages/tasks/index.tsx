@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, PropsWithChildren } from 'react';
 import type { NextPage, GetServerSideProps } from 'next';
 import API from '../../utils/api';
 
@@ -12,16 +12,18 @@ import Loader from '../../components/_ui/Loader/Loader';
 import TaskForm from '../../components/TaskForm/TaskForm';
 import TasksList from '../../components/TasksList/TasksList';
 
-const TasksPage: NextPage<{
+type TasksPageProps = {
   tasks: Task[]
-}> = props => {
+};
+
+const TasksPage: NextPage<TasksPageProps> = (props: PropsWithChildren<TasksPageProps>) => {
   const {
-      addTask,
-      removeTask: removeTaskAction,
-      patchTask: patchTaskAction,
-      loadTasks
+    addTask,
+    removeTask: removeTaskAction,
+    patchTask: patchTaskAction,
+    loadTasks
   } = useActions();
-  const { data: tasks, isFetching } = useTypedSelector(state => state.tasks); 
+  const { data: tasks, isFetching } = useTypedSelector(state => state.tasks);
 
   useEffect(() => {
     if (!tasks.length) {

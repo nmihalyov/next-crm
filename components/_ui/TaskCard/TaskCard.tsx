@@ -1,11 +1,11 @@
-import React from 'react';
+import { FC, memo } from 'react';
 import type { Task } from '../../../types/task';
 import { Modal, Row, Button, Typography, Checkbox } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 
 import styles from './TaskCard.module.scss';
 
-const TaskCard: React.FC<Task & {
+const TaskCard: FC<Task & {
   onPatch(id: number, completed: boolean): void,
   onRemove(id: number): void,
 }> = props => {
@@ -38,4 +38,4 @@ const TaskCard: React.FC<Task & {
   );
 };
 
-export default React.memo(TaskCard);
+export default memo(TaskCard);

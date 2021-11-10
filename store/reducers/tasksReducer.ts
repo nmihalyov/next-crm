@@ -33,11 +33,11 @@ const tasksReducer = (state = defaultState, action: TasksAction): TasksState => 
         data: state.data.map(task => {
           if (task.id === id) {
             return {
-             ...task,
-             completed
+              ...task,
+              completed
             };
           }
- 
+
           return task;
         })
       };

@@ -13,7 +13,7 @@ const fetchData = async (): Promise<Task[]> => {
 const fetchTasksWorker = function *() {
   yield put(setFetchingTasks(true));
   const tasks = yield* call(fetchData);
-  
+
   yield put(loadTasks(tasks));
   yield put(setFetchingTasks(false));
 };

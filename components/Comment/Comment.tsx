@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import { Comment as CommentComponent, Avatar, Typography } from 'antd';
 
 import type { Comment as CommentType } from '../../types/comment';
 
-const Comment: React.FC<CommentType> = props => {
+const Comment: FC<CommentType> = props => {
   const { name, body } = props;
 
   return (
