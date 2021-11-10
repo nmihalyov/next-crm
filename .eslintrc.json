@@ -29,6 +29,14 @@
     "generator-star-spacing": 0,
     "react/react-in-jsx-scope": 0
   },
+  "overrides": [
+    {
+      "files": ["**/*.spec.js", "**/*.test.js"],
+      "rules": {
+        "no-undef": 0
+      }
+    }
+  ],
   "settings": {
     "react": {
       "version": "detect"
