@@ -10,6 +10,9 @@ const HomePage: NextPage = () => {
       <Row justify="center" align="middle">
         <Typography.Title style={{fontWeight: 900}}>Welcome to Next CRM</Typography.Title>
       </Row>
+      <Row justify="center" align="middle">
+        <Typography.Paragraph>A simple application based on React, NextJS, Redux & TypeScript</Typography.Paragraph>
+      </Row>
     </MainLayout>
   );
 };
