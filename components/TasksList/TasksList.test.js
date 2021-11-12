@@ -5,7 +5,7 @@ describe('TasksList:', () => {
   const tasks = [{userId: 1, id: 1, title: 'Task title', completed: true}];
 
   it('renders component if any tasks', () => {
-    const component = setUp(tasks);
+    const component = setUp({tasks});
 
     expect(component).toMatchSnapshot();
   });
@@ -14,6 +14,6 @@ describe('TasksList:', () => {
     const component = setUp();
     const empty = component.find('Empty');
 
-    expect(empty).toHaveLength(1);
+    expect(empty).toMatchSnapshot();
   });
 });

@@ -7,7 +7,6 @@ describe('PostForm:', () => {
   const bodyValue = 'Post body text';
   const onApply = jest.fn();
   let component;
-  let form;
   let button;
   let titleInput;
   let bodyInput;
@@ -34,14 +33,13 @@ describe('PostForm:', () => {
         <PostForm onApply={onApply} />
       </Provider>
     );
-    form = component.find('form');
     button = component.find('Button');
     titleInput = component.find('input');
     bodyInput = component.find('textarea');
   });
 
-  it('renders form element', () => {
-    expect(form).toHaveLength(1);
+  it('renders PostForm', () => {
+    expect(component).toMatchSnapshot();
   });
 
   // This is a dummy hack to run test after timeout, otherwise it fails (supposed to be two different tests)

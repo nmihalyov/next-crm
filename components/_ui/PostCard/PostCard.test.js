@@ -3,6 +3,18 @@ import PostCard from './PostCard';
 describe('PostCard:', () => {
   const setUp = props => shallow(<PostCard {...props} />);
 
+  it('renders PostCard', () => {
+    const props = {
+      userId: 1,
+      id: 1,
+      title: 'Post title',
+      body: 'Post body text'
+    };
+    const component = mount(<PostCard {...props} />);
+
+    expect(component).toMatchSnapshot();
+  });
+
   it('contains CardItem', () => {
     const component = setUp();
     const card = component.find('CardItem');

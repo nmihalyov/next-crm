@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TasksList: renders component if any tasks 1`] = `
+<div>
+  <Memo(TaskCard)
+    completed={true}
+    id={1}
+    key="1"
+    title="Task title"
+    userId={1}
+  />
+</div>
+`;
+
+exports[`TasksList: renders empty element if no tasks 1`] = `
+<Empty
+  description="No tasks yet"
+  image={<Simple />}
+/>
+`;

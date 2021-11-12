@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostsGrid: renders component if any posts 1`] = `
+<div
+  className="grid"
+>
+  <Memo(PostCard)
+    body="Post body text"
+    id={1}
+    key="1"
+    title="Title"
+    userId={1}
+  />
+</div>
+`;
+
+exports[`PostsGrid: renders empty element if no posts 1`] = `
+<Empty
+  className="empty"
+  description="No posts yet"
+  image={<Simple />}
+/>
+`;

@@ -14,6 +14,6 @@ describe('PostsGrid:', () => {
     const component = setUp();
     const empty = component.find('Empty');
 
-    expect(empty).toHaveLength(1);
+    expect(empty).toMatchSnapshot();
   });
 });

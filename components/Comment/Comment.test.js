@@ -10,10 +10,8 @@ describe('Comment:', () => {
     component = setUp({name, body});
   });
 
-  it('renders CommentComponent', () => {
-    const comment = component.find('Comment');
-
-    expect(comment).toHaveLength(1);
+  it('renders Comment', () => {
+    expect(component).toMatchSnapshot();
   });
 
   it('renders author name\'s first letter', () => {

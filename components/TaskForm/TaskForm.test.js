@@ -6,7 +6,6 @@ describe('TaskForm:', () => {
   const onApply = jest.fn();
   const titleValue = 'Title';
   let component;
-  let form;
   let button;
   let input;
   let store;
@@ -32,13 +31,12 @@ describe('TaskForm:', () => {
         <TaskForm onApply={onApply} />
       </Provider>
     );
-    form = component.find('form');
     button = component.find('Button');
     input = component.find('input');
   });
 
-  it('renders component', () => {
-    expect(form).toHaveLength(1);
+  it('renders TaskForm', () => {
+    expect(component).toMatchSnapshot();
   });
 
   // This is a dummy hack to run test after timeout, otherwise it fails (supposed to be two different tests)

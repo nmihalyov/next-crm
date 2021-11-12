@@ -1,0 +1,640 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostCard: renders PostCard 1`] = `
+<Memo(PostCard)
+  body="Post body text"
+  id={1}
+  title="Post title"
+  userId={1}
+>
+  <CardItem>
+    <Card
+      className="card"
+      hoverable={true}
+      title={
+        <Tooltip
+          arrowPointAtCenter={false}
+          autoAdjustOverflow={true}
+          mouseEnterDelay={0.1}
+          mouseLeaveDelay={0.1}
+          placement="top"
+          title="Post title"
+        >
+          Post title
+        </Tooltip>
+      }
+    >
+      <div
+        className="ant-card ant-card-bordered ant-card-hoverable card"
+      >
+        <div
+          className="ant-card-head"
+          style={Object {}}
+        >
+          <div
+            className="ant-card-head-wrapper"
+          >
+            <div
+              className="ant-card-head-title"
+            >
+              <Tooltip
+                arrowPointAtCenter={false}
+                autoAdjustOverflow={true}
+                mouseEnterDelay={0.1}
+                mouseLeaveDelay={0.1}
+                placement="top"
+                title="Post title"
+              >
+                <ForwardRef(Tooltip)
+                  arrowContent={
+                    <span
+                      className="ant-tooltip-arrow-content"
+                    />
+                  }
+                  arrowPointAtCenter={false}
+                  autoAdjustOverflow={true}
+                  builtinPlacements={
+                    Object {
+                      "bottom": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tc",
+                          "bc",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "bottomLeft": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tl",
+                          "bl",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "bottomRight": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tr",
+                          "br",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "left": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          -4,
+                          0,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "cr",
+                          "cl",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "leftBottom": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          -4,
+                          0,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "br",
+                          "bl",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "leftTop": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          -4,
+                          0,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tr",
+                          "tl",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "right": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          4,
+                          0,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "cl",
+                          "cr",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "rightBottom": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          4,
+                          0,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "bl",
+                          "br",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "rightTop": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          4,
+                          0,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tl",
+                          "tr",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "top": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "bc",
+                          "tc",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "topLeft": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "bl",
+                          "tl",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "topRight": Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "br",
+                          "tr",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                    }
+                  }
+                  motion={
+                    Object {
+                      "motionDeadline": 1000,
+                      "motionName": "ant-zoom-big-fast",
+                    }
+                  }
+                  mouseEnterDelay={0.1}
+                  mouseLeaveDelay={0.1}
+                  onPopupAlign={[Function]}
+                  onVisibleChange={[Function]}
+                  overlay="Post title"
+                  overlayClassName=""
+                  placement="top"
+                  prefixCls="ant-tooltip"
+                  title="Post title"
+                  visible={false}
+                >
+                  <Trigger
+                    action={
+                      Array [
+                        "hover",
+                      ]
+                    }
+                    afterPopupVisibleChange={[Function]}
+                    arrowContent={
+                      <span
+                        className="ant-tooltip-arrow-content"
+                      />
+                    }
+                    arrowPointAtCenter={false}
+                    autoAdjustOverflow={true}
+                    autoDestroy={false}
+                    blurDelay={0.15}
+                    builtinPlacements={
+                      Object {
+                        "bottom": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            0,
+                            4,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "tc",
+                            "bc",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "bottomLeft": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            0,
+                            4,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "tl",
+                            "bl",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "bottomRight": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            0,
+                            4,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "tr",
+                            "br",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "left": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            -4,
+                            0,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "cr",
+                            "cl",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "leftBottom": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            -4,
+                            0,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "br",
+                            "bl",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "leftTop": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            -4,
+                            0,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "tr",
+                            "tl",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "right": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            4,
+                            0,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "cl",
+                            "cr",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "rightBottom": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            4,
+                            0,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "bl",
+                            "br",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "rightTop": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            4,
+                            0,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "tl",
+                            "tr",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "top": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            0,
+                            -4,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "bc",
+                            "tc",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "topLeft": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            0,
+                            -4,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "bl",
+                            "tl",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                        "topRight": Object {
+                          "ignoreShake": true,
+                          "offset": Array [
+                            0,
+                            -4,
+                          ],
+                          "overflow": Object {
+                            "adjustX": 1,
+                            "adjustY": 1,
+                          },
+                          "points": Array [
+                            "br",
+                            "tr",
+                          ],
+                          "targetOffset": Array [
+                            0,
+                            0,
+                          ],
+                        },
+                      }
+                    }
+                    defaultPopupVisible={false}
+                    destroyPopupOnHide={false}
+                    focusDelay={0}
+                    getDocument={[Function]}
+                    getPopupClassNameFromAlign={[Function]}
+                    hideAction={Array []}
+                    mask={false}
+                    maskClosable={true}
+                    mouseEnterDelay={0.1}
+                    mouseLeaveDelay={0.1}
+                    onPopupAlign={[Function]}
+                    onPopupVisibleChange={[Function]}
+                    overlay="Post title"
+                    popup={[Function]}
+                    popupAlign={Object {}}
+                    popupClassName=""
+                    popupMotion={
+                      Object {
+                        "motionDeadline": 1000,
+                        "motionName": "ant-zoom-big-fast",
+                      }
+                    }
+                    popupPlacement="top"
+                    popupStyle={Object {}}
+                    popupVisible={false}
+                    prefixCls="ant-tooltip"
+                    showAction={Array []}
+                    title="Post title"
+                    visible={false}
+                  >
+                    <span
+                      key="trigger"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                    >
+                      Post title
+                    </span>
+                  </Trigger>
+                </ForwardRef(Tooltip)>
+              </Tooltip>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ant-card-body"
+          style={Object {}}
+        >
+          <Text>
+            <Base
+              component="span"
+            >
+              <LocaleReceiver
+                componentName="Text"
+              >
+                <ResizeObserver
+                  disabled={true}
+                  onResize={[Function]}
+                >
+                  <Typography
+                    className=""
+                    component="span"
+                    style={
+                      Object {
+                        "WebkitLineClamp": undefined,
+                      }
+                    }
+                  >
+                    <span
+                      className="ant-typography"
+                      style={
+                        Object {
+                          "WebkitLineClamp": undefined,
+                        }
+                      }
+                    >
+                      Post body text
+                    </span>
+                  </Typography>
+                </ResizeObserver>
+              </LocaleReceiver>
+            </Base>
+          </Text>
+        </div>
+      </div>
+    </Card>
+  </CardItem>
+</Memo(PostCard)>
+`;

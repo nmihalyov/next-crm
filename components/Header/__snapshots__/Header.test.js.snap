@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header: renders Header 1`] = `
+<Header
+  className="header"
+>
+  <Row
+    align="middle"
+    justify="space-between"
+  >
+    <Title
+      className="title"
+      level={4}
+      style={
+        Object {
+          "fontWeight": 700,
+        }
+      }
+    >
+      <ForwardRef(ShareAltOutlined) />
+       Next CRM
+    </Title>
+    <Row
+      align="middle"
+    >
+      <Menu
+        mode="horizontal"
+        selectedKeys={
+          Array [
+            undefined,
+          ]
+        }
+        theme="dark"
+      >
+        <MenuItem
+          icon={<ForwardRef(HomeOutlined) />}
+          key="/"
+          onClick={[Function]}
+        >
+          Main
+        </MenuItem>
+        <MenuItem
+          icon={<ForwardRef(ContainerOutlined) />}
+          key="/tasks"
+          onClick={[Function]}
+        >
+          Tasks
+        </MenuItem>
+        <MenuItem
+          icon={<ForwardRef(BookOutlined) />}
+          key="/posts"
+          onClick={[Function]}
+        >
+          Posts
+        </MenuItem>
+        <MenuItem
+          icon={<ForwardRef(UserOutlined) />}
+          key="/users"
+          onClick={[Function]}
+        >
+          Users
+        </MenuItem>
+        <MenuItem
+          icon={<ForwardRef(InfoCircleOutlined) />}
+          key="/about"
+          onClick={[Function]}
+        >
+          About
+        </MenuItem>
+      </Menu>
+      <Button
+        ghost={true}
+        style={
+          Object {
+            "marginLeft": 20,
+          }
+        }
+      >
+        Logout
+      </Button>
+    </Row>
+  </Row>
+</Header>
+`;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskCard: renders TaskCard 1`] = `
+<Row
+  align="middle"
+  className="card"
+  justify="space-between"
+>
+  <Checkbox
+    checked={false}
+    onChange={[Function]}
+  >
+    <Text
+      className="title "
+    >
+      Task title
+    </Text>
+  </Checkbox>
+  <Button
+    danger={true}
+    ghost={true}
+    icon={<ForwardRef(DeleteOutlined) />}
+    onClick={[Function]}
+    type="primary"
+  />
+</Row>
+`;

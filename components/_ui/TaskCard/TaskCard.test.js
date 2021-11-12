@@ -3,26 +3,18 @@ import TaskCard from './TaskCard';
 describe('TaskCard:', () => {
   const setUp = props => shallow(<TaskCard {...props} />);
 
-  it('contains checkbox', () => {
-    const component = setUp();
-    const checkbox = component.find('Checkbox');
+  it('renders TaskCard', () => {
+    const props = {
+      userId: 1,
+      id: 1,
+      title: 'Task title',
+      completed: false,
+      onPatch: () => {},
+      onRemove: () => {}
+    };
+    const component = setUp(props);
 
-    expect(checkbox).toHaveLength(1);
-  });
-
-  it('contains remove button', () => {
-    const component = setUp();
-    const button = component.find('Button');
-
-    expect(button.length).toBe(1);
-  });
-
-  it('contains task title', () => {
-    const taskTitle = 'Task title';
-    const component = setUp({title: taskTitle});
-    const title = component.find('Text');
-
-    expect(title.children().text()).toBe(taskTitle);
+    expect(component).toMatchSnapshot();
   });
 
   it('title has completed class name if completed prop is true', () => {
