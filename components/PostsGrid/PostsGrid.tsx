@@ -10,7 +10,7 @@ const PostsGrid: FC<{
 }> = ({ posts }) => {
   return (
     <div className={styles.grid}>
-      {posts.length
+      {posts?.length
         ? posts.map(post => <PostCard key={post.id} {...post} />)
         : <Empty
           image={Empty.PRESENTED_IMAGE_SIMPLE}

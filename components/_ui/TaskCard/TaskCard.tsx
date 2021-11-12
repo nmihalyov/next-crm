@@ -26,7 +26,7 @@ const TaskCard: FC<Task & {
   return (
     <Row className={styles.card} justify="space-between" align="middle">
       <Checkbox checked={completed} onChange={onChange}>
-        <Typography.Text className={`${styles.title} ${completed ? styles.titleDone : ''}`}>{decodeURI(title)}</Typography.Text>
+        <Typography.Text className={`${styles.title} ${completed ? styles.titleDone : ''}`}>{title}</Typography.Text>
       </Checkbox>
       <Button
         danger

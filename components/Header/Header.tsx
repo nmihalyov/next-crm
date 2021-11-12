@@ -27,7 +27,7 @@ const Header: FC = () => {
       <Row justify="space-between" align="middle">
         <Typography.Title level={4} className={styles.title} style={{fontWeight: 700}}><ShareAltOutlined /> Next CRM</Typography.Title>
         <Row align="middle">
-          <Menu theme="dark" mode="horizontal" selectedKeys={[router.pathname]}>
+          <Menu theme="dark" mode="horizontal" selectedKeys={[router?.pathname]}>
             {links.map(el =>
               <Menu.Item key={el.href} onClick={() => router.push(el.href)} icon={el.icon}>
                 {el.label}

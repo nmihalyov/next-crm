@@ -7,7 +7,9 @@ module.exports = {
     '!.next/**',
     '!coverage/**',
     '!**/*.d.ts',
-    '!**/node_modules/**'
+    '!**/node_modules/**',
+    '!jest.config.js',
+    '!next.config.js'
   ],
   moduleNameMapper: {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',

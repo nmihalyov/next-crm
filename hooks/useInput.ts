@@ -5,7 +5,7 @@ type EventType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 const useInput = (initial = '') => {
   const [value, setValue] = useState(initial);
   const onChange = (e: EventType): void => {
-    setValue(encodeURI(e.target.value));
+    setValue(e.target.value);
   };
   const clear = (): void => {
     setValue('');

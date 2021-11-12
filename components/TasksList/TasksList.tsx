@@ -5,7 +5,7 @@ import { Empty } from 'antd';
 import TaskCard from '../_ui/TaskCard/TaskCard';
 
 const TasksList: FC<{
-  tasks: Array<Task>,
+  tasks: Task[],
   onPatch(id: number, completed: boolean): void,
   onRemove(id: number): void
 }> = props => {
@@ -16,7 +16,7 @@ const TasksList: FC<{
 
   return (
     <div>
-      {tasks.length
+      {tasks?.length
         ? tasks.map(task =>
           <TaskCard
             key={task.id}

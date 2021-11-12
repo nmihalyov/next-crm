@@ -5,14 +5,13 @@ import type { Post } from '../../../types/post';
 import styles from './PostCard.module.scss';
 
 const PostCard: FC<Post> = props => {
-  const { title: encodedTitle, body, id } = props;
-  const title = decodeURI(encodedTitle);
+  const { title, body, id } = props;
   const CardItem: FC = () =>
     <Card
       title={<Tooltip title={title}>{title}</Tooltip>}
       className={styles.card}
       hoverable={id <= 1000}>
-      <Typography.Text>{decodeURI(body)}</Typography.Text>
+      <Typography.Text>{body}</Typography.Text>
     </Card>;
 
   if (id <= 1000) {
