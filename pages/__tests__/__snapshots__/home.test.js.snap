@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage: renders home page 1`] = `
+<MainLayout
+  title="Main"
+>
+  <Row
+    align="middle"
+    justify="center"
+  >
+    <Title
+      style={
+        Object {
+          "fontWeight": 900,
+        }
+      }
+    >
+      Welcome to Next CRM
+    </Title>
+  </Row>
+  <Row
+    align="middle"
+    justify="center"
+  >
+    <Paragraph>
+      A simple application based on React, NextJS, Redux & TypeScript
+    </Paragraph>
+  </Row>
+</MainLayout>
+`;

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainLayout: renders MainLayout with custom page title 1`] = `
+<Fragment>
+  <Head>
+    <title>
+      Main | Next CRM
+    </title>
+    <meta
+      content="TypeScript React project on NextJS"
+      name="description"
+    />
+    <link
+      href="/favicon.ico"
+      rel="icon"
+    />
+  </Head>
+  <Memo(Header) />
+  <Content>
+    <Layout>
+      <div
+        className="container"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </Layout>
+  </Content>
+</Fragment>
+`;
+
+exports[`MainLayout: renders MainLayout with default page title 1`] = `
+<Fragment>
+  <Head>
+    <title>
+      Next CRM
+    </title>
+    <meta
+      content="TypeScript React project on NextJS"
+      name="description"
+    />
+    <link
+      href="/favicon.ico"
+      rel="icon"
+    />
+  </Head>
+  <Memo(Header) />
+  <Content>
+    <Layout>
+      <div
+        className="container"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </Layout>
+  </Content>
+</Fragment>
+`;

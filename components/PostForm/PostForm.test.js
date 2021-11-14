@@ -56,8 +56,8 @@ describe('PostForm:', () => {
 
       setTimeout(() => {
         expect(onApply).toHaveBeenCalledWith({userId: 1, title: titleValue, body: bodyValue, id: Date.now()});
-        expect(titleInput.getElement().props.value).toBe('');
-        expect(bodyInput.getElement().props.value).toBe('');
+        expect(titleInput.prop('value')).toBe('');
+        expect(bodyInput.prop('value')).toBe('');
         done();
       });
     });

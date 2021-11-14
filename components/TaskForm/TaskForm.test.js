@@ -52,7 +52,7 @@ describe('TaskForm:', () => {
 
       setTimeout(() => {
         expect(onApply).toHaveBeenCalledWith({userId: 1, title: titleValue, completed: false, id: Date.now()});
-        expect(input.getElement().props.value).toBe('');
+        expect(input.prop('value')).toBe('');
         done();
       });
     });

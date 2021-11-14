@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage: renders 404 page 1`] = `
+<MainLayout
+  title="Page not found"
+>
+  <Result
+    extra={
+      <Button
+        type="primary"
+      >
+        <Link
+          href="/"
+        >
+          Go to main page
+        </Link>
+      </Button>
+    }
+    status="404"
+    subTitle="Page not found"
+    title="404"
+  />
+</MainLayout>
+`;
