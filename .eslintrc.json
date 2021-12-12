@@ -33,7 +33,8 @@
     {
       "files": ["**/*.spec.js", "**/*.test.js"],
       "rules": {
-        "no-undef": 0
+        "no-undef": 0,
+        "react/prop-types": 0
       }
     }
   ],
